@@ -21,7 +21,7 @@ trait SingletonPatternTrait
      */
     final public static function getInstance()
     {
-        return isset(static::$instance) ? static::$instance : static::$instance = new static;
+        return isset(static::$instance) ? static::$instance : static::$instance = new static();
     }
 
     /**
@@ -56,4 +56,4 @@ trait SingletonPatternTrait
     {
         return null;
     }
-} 
+}

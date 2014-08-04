@@ -4,10 +4,13 @@
  * This code is under the MIT License (https://github.com/Irvyne/license/blob/master/MIT.md)
  */
 
+use Irvyne\SessionStorage\PhpSessionStorage;
+use Irvyne\SessionStorage\PredisSessionStorage;
+
 require __DIR__.'/vendor/autoload.php';
 
 /** @var \Irvyne\SessionStorage\PhpSessionStorage $session */
-$session = \Irvyne\SessionStorage\PhpSessionStorage::getInstance();
+$session = PredisSessionStorage::getInstance();
 
 $key = 'name';
 $value = 'Thibaud';

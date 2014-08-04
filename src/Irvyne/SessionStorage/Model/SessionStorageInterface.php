@@ -14,7 +14,7 @@ interface SessionStorageInterface
     /**
      * Get the value of the given key from Session
      *
-     * @param integer|string $key
+     * @param  integer|string $key
      * @return mixed
      */
     public function get($key);
@@ -22,8 +22,8 @@ interface SessionStorageInterface
     /**
      * Set the value of the given key in Session
      *
-     * @param integer|string $key
-     * @param mixed $value
+     * @param  integer|string $key
+     * @param  mixed          $value
      * @return mixed
      */
     public function set($key, $value);
@@ -36,10 +36,10 @@ interface SessionStorageInterface
     public function getAll();
 
     /**
-     * Test if the given key exist from Session
+     * Test if the given key exists from Session
      *
-     * @param string $key
+     * @param  string $key
      * @return bool
      */
-    public function exist($key);
+    public function exists($key);
 }
