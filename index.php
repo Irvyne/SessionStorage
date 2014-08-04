@@ -14,4 +14,4 @@ $value = 'Thibaud';
 
 $session->set($key, $value);
 
-echo 'The value of "'.$key.'" in session is: '.$session->get('key');
+echo 'The value of "'.$key.'" in session is: '.$session->get($key);
