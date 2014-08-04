@@ -4,6 +4,8 @@
  * This code is under the MIT License (https://github.com/Irvyne/license/blob/master/MIT.md)
  */
 
+namespace Irvyne\SessionStorage\Model;
+
 /**
  * Interface SessionStorageInterface
  */
@@ -25,6 +27,13 @@ interface SessionStorageInterface
      * @return mixed
      */
     public function set($key, $value);
+
+    /**
+     * Get all keys and values from Session
+     *
+     * @return array
+     */
+    public function getAll();
 
     /**
      * Test if the given key exist from Session

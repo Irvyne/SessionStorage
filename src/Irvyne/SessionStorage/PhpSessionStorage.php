@@ -4,13 +4,17 @@
  * This code is under the MIT License (https://github.com/Irvyne/license/blob/master/MIT.md)
  */
 
+namespace Irvyne\SessionStorage;
+
+use Irvyne\SessionStorage\Model\SessionStorageInterface;
+use Irvyne\SessionStorage\Model\SingletonPatternTrait;
+
 /**
  * Class PhpSessionStorage
- * Pattern: Singleton Pattern
  */
 class PhpSessionStorage implements SessionStorageInterface
 {
-    use SingletonPattern;
+    use SingletonPatternTrait;
 
     /**
      * Constructor for Singleton Pattern
@@ -35,6 +39,14 @@ class PhpSessionStorage implements SessionStorageInterface
     {
         $_SESSION[$key] = $value;
         return [$key => $value];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAll()
+    {
+        return $_SESSION;
     }
 
     /**

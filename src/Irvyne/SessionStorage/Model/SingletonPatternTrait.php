@@ -4,10 +4,12 @@
  * This code is under the MIT License (https://github.com/Irvyne/license/blob/master/MIT.md)
  */
 
+namespace Irvyne\SessionStorage\Model;
+
 /**
  * Trait SingletonPattern
  */
-trait SingletonPattern
+trait SingletonPatternTrait
 {
     /**
      * @var object

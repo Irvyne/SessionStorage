@@ -4,9 +4,14 @@
  * This code is under the MIT License (https://github.com/Irvyne/license/blob/master/MIT.md)
  */
 
-require 'Trait/SingletonPattern.php';
-require 'SessionStorageInterface.php';
-require 'PhpSessionStorage.php';
+require __DIR__.'/vendor/autoload.php';
 
-$session = PhpSessionStorage::getInstance();
+/** @var \Irvyne\SessionStorage\PhpSessionStorage $session */
+$session = \Irvyne\SessionStorage\PhpSessionStorage::getInstance();
 
+$key = 'name';
+$value = 'Thibaud';
+
+$session->set($key, $value);
+
+echo 'The value of "'.$key.'" in session is: '.$session->get('key');
