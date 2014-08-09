@@ -7,21 +7,25 @@
 namespace Irvyne\SessionStorage;
 
 use Irvyne\SessionStorage\Model\SessionStorageInterface;
-use Irvyne\SessionStorage\Model\SingletonPatternTrait;
+use Predis\Client;
 
 /**
- * Class PhpSessionStorage
+ * Class RedisSessionStorage
+ * @package Irvyne\SessionStorage
  */
-class PhpSessionStorage implements SessionStorageInterface
+class PredisSessionStorage implements SessionStorageInterface
 {
-    use SingletonPatternTrait;
+    /**
+     * @var Client
+     */
+    protected $client;
 
     /**
-     * Constructor for Singleton Pattern
+     * Constructor
      */
-    protected function init()
+    public function __construct()
     {
-        session_start();
+        $this->client = new Client();
     }
 
     /**
@@ -29,7 +33,7 @@ class PhpSessionStorage implements SessionStorageInterface
      */
     public function get($key)
     {
-        return $this->exists($key) ? $_SESSION[$key] : null;
+        return $this->exists($key) ? $this->client->get($key) : null;
     }
 
     /**
@@ -37,7 +41,7 @@ class PhpSessionStorage implements SessionStorageInterface
      */
     public function set($key, $value)
     {
-        $_SESSION[$key] = $value;
+        $this->client->set($key, $value);
 
         return [$key => $value];
     }
@@ -47,7 +51,7 @@ class PhpSessionStorage implements SessionStorageInterface
      */
     public function getAll()
     {
-        return $_SESSION;
+        return [];
     }
 
     /**
@@ -55,6 +59,6 @@ class PhpSessionStorage implements SessionStorageInterface
      */
     public function exists($key)
     {
-        return isset($_SESSION[$key]);
+        return $this->client->exists($key);
     }
 }

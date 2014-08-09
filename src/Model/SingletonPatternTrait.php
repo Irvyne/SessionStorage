@@ -7,7 +7,8 @@
 namespace Irvyne\SessionStorage\Model;
 
 /**
- * Trait SingletonPattern
+ * Trait SingletonPatternTrait
+ * @package Irvyne\SessionStorage\Model
  */
 trait SingletonPatternTrait
 {

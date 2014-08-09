@@ -1,7 +1,9 @@
 {
     "name": "irvyne/session-storage",
     "description": "Abstract Session Storage",
+    "type": "library",
     "minimum-stability": "stable",
+    "homepage": "https://github.com/Irvyne/SessionStorage",
     "license": "MIT",
     "authors": [
         {
@@ -10,12 +12,21 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "": "src/"
+        "psr-4": {
+            "Irvyne\\SessionStorage\\": "src/",
+            "Tests\\Irvyne\\SessionStorage\\": "tests/"
         }
     },
     "require": {
         "php": ">=5.5.3",
         "predis/predis": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.2"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }

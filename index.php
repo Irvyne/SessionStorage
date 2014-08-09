@@ -5,15 +5,14 @@
  */
 
 use Irvyne\SessionStorage\PhpSessionStorage;
-use Irvyne\SessionStorage\PredisSessionStorage;
 
 require __DIR__.'/vendor/autoload.php';
 
 /** @var \Irvyne\SessionStorage\PhpSessionStorage $session */
-$session = PredisSessionStorage::getInstance();
+$session = new PhpSessionStorage();
 
-$key = 'name';
-$value = 'Thibaud';
+$key = 'banana';
+$value = 'Juliette';
 
 $session->set($key, $value);
 

@@ -8,6 +8,7 @@ namespace Irvyne\SessionStorage\Model;
 
 /**
  * Interface SessionStorageInterface
+ * @package Irvyne\SessionStorage\Model
  */
 interface SessionStorageInterface
 {
