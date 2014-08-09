@@ -15,6 +15,11 @@ use Irvyne\SessionStorage\Model\SessionStorageInterface;
 class PhpSessionStorage implements SessionStorageInterface
 {
     /**
+     * @var $_SESSION
+     */
+    protected $session;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -22,6 +27,8 @@ class PhpSessionStorage implements SessionStorageInterface
         if (PHP_SESSION_DISABLED === session_status()) throw new \Exception('PHP Session is DISABLED!');
 
         PHP_SESSION_ACTIVE === session_status() ?: session_start();
+
+        $this->session = &$_SESSION;
     }
 
     /**
@@ -29,7 +36,7 @@ class PhpSessionStorage implements SessionStorageInterface
      */
     public function get($key)
     {
-        return $this->exists($key) ? $_SESSION[$key] : null;
+        return $this->exists($key) ? $this->session[$key] : null;
     }
 
     /**
@@ -37,7 +44,7 @@ class PhpSessionStorage implements SessionStorageInterface
      */
     public function set($key, $value)
     {
-        $_SESSION[$key] = $value;
+        $this->session[$key] = $value;
 
         return [$key => $value];
     }
@@ -47,7 +54,7 @@ class PhpSessionStorage implements SessionStorageInterface
      */
     public function getAll()
     {
-        return $_SESSION;
+        return $this->session;
     }
 
     /**
@@ -55,6 +62,6 @@ class PhpSessionStorage implements SessionStorageInterface
      */
     public function exists($key)
     {
-        return isset($_SESSION[$key]);
+        return isset($this->session[$key]);
     }
 }

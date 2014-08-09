@@ -10,7 +10,7 @@ namespace Irvyne\SessionStorage\Model;
  * Interface SessionStorageInterface
  * @package Irvyne\SessionStorage\Model
  */
-interface SessionStorageInterface
+interface SessionStorageInterface// extends \SessionHandlerInterface
 {
     /**
      * Get the value of the given key from Session
