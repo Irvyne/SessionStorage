@@ -17,12 +17,12 @@
         </testsuite>
     </testsuites>
 
-    <!--<filter>
+    <filter>
         <whitelist>
-            <directory>./Symfony/CS</directory>
+            <directory>./</directory>
             <exclude>
-                <directory>./Symfony/CS/Tests</directory>
+                <directory>./tests</directory>
             </exclude>
         </whitelist>
-    </filter>-->
+    </filter>
 </phpunit>
