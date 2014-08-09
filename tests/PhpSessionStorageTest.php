@@ -22,4 +22,23 @@ class PhpSessionStorageTest extends SessionStorageTestModel
     {
         parent::__construct(new PhpSessionStorage());
     }
+
+    public function testConstructMethod()
+    {
+        $this->assertEquals(PHP_SESSION_ACTIVE, session_status());
+    }
+
+    public function testGetAll()
+    {
+        $array = [];
+
+        for ($i = 1; $i <= 10; $i++) {
+            $key = $this->getHash();
+            $value = $this->getHash();
+            $array[$key] = $value;
+            $this->session->set($key, $value);
+        }
+
+        $this->assertEquals($array, $this->session->getAll());
+    }
 }

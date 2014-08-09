@@ -25,7 +25,7 @@ interface SessionStorageInterface
      *
      * @param  integer|string $key
      * @param  mixed          $value
-     * @return mixed
+     * @return array
      */
     public function set($key, $value);
 

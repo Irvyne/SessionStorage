@@ -8,7 +8,8 @@ tools:
   php_cs_fixer:
     config: { level: all }
   sensiolabs_security_checker: true
-  external_code_coverage: true
+  external_code_coverage:
+    runs: 3
 
 filter:
   paths: [src/*]
