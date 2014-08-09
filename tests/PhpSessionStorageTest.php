@@ -16,6 +16,11 @@ use Tests\Irvyne\SessionStorage\Model\SessionStorageTestModel;
 class PhpSessionStorageTest extends SessionStorageTestModel
 {
     /**
+     * @var PhpSessionStorage
+     */
+    protected $session;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -25,6 +30,13 @@ class PhpSessionStorageTest extends SessionStorageTestModel
 
     public function testConstructMethod()
     {
+        $this->assertEquals(PHP_SESSION_ACTIVE, session_status());
+    }
+
+    public function testMultipleConstructMethod()
+    {
+        $this->session->__construct();
+
         $this->assertEquals(PHP_SESSION_ACTIVE, session_status());
     }
 
