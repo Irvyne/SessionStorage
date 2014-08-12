@@ -13,7 +13,7 @@ use Predis\Client;
  * Class RedisSessionStorage
  * @package Irvyne\SessionStorage
  */
-class PredisSessionStorage implements SessionStorageInterface
+class RedisSessionStorage implements SessionStorageInterface
 {
     /**
      * @var Client
